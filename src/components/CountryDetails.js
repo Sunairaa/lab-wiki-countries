@@ -58,7 +58,7 @@ function CountryDetails({ countriesData }) {
           </tr>
         </tbody>
       </table>
-        </>
+      </>
     )}    
       
     </div>

@@ -4,7 +4,8 @@ import './App.css';
 import Navbar from './components/Navbar';
 import CountriesList from './components/CountriesList';
 import countryData from './countries.json';
-import CountryDetails from './components/CountryDetails';
+// import CountryDetails from './components/CountryDetails';
+import CountryDetailsWithApi from './components/CountryDetailsWithApi';
 import axios from 'axios';
 const apiURL = 'https://ih-countries-api.herokuapp.com/countries';
 
@@ -13,7 +14,7 @@ function App() {
   // initialize json to state
   // const [countriesData, setData] = useState(countryData);
 
-  // initialize state with empty array then ater assign with api 
+  // initialize state with empty array then later assign with api data
   const [countriesData, setData] = useState([]);
   const [fetching, setFetching] = useState(true);
 
@@ -32,10 +33,16 @@ function App() {
     <div className="container">
       <div className="row">
         <CountriesList countriesData={countriesData} />
-        <Routes>
+        {/* <Routes>
           <Route
             path=":id"
             element={<CountryDetails countriesData={countriesData} />}
+          />
+        </Routes> */}
+        <Routes>
+          <Route
+            path=":id"
+            element={<CountryDetailsWithApi allCountriesData={countriesData}/>}
           />
         </Routes>
       </div>
